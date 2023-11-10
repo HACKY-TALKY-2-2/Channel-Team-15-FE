@@ -1,5 +1,6 @@
 export const To = {
   Home: "/",
   SignIn: "/sign-in",
-  Memory: "/memory"
+  Memory: "/memory",
+  SignUp: "/sign-up"
 };

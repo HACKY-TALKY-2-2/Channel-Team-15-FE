@@ -6,6 +6,7 @@ import "./App.css";
 import { Home } from "./pages/home";
 import { Memory } from "./pages/memory";
 import { SingIn } from "./pages/sign-in";
+import { SignUp } from "./pages/sign-up";
 import { To } from "./routes/route";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path={To.Home} Component={Home} />
               <Route path={To.SignIn} Component={SingIn} />
               <Route path={To.Memory} Component={Memory} />
+              <Route path={To.SignUp} Component={SignUp} />
             </Routes>
           </Router>
         </QueryClientProvider>
