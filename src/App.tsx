@@ -6,6 +6,8 @@ import "./App.css";
 import { Home } from "./pages/home";
 import { Memory } from "./pages/memory";
 import { SingIn } from "./pages/sign-in";
+import { MyMission } from "./pages/my-mission";
+import { TeamMission } from "./pages/team-mission";
 import { SignUp } from "./pages/sign-up";
 import { To } from "./routes/route";
 
@@ -31,6 +33,8 @@ function App() {
             <Routes>
               <Route path={To.Home} Component={Home} />
               <Route path={To.SignIn} Component={SingIn} />
+              <Route path={To.MyMission} Component={MyMission} />
+              <Route path={To.TeamMission} Component={TeamMission} />
               <Route path={To.Memory} Component={Memory} />
               <Route path={To.SignUp} Component={SignUp} />
             </Routes>
