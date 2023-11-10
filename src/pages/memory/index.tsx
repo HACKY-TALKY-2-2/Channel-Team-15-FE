@@ -11,9 +11,6 @@ import {
   ListItem,
 } from "@channel.io/bezier-react";
 import { useNavigate } from "react-router-dom";
-import { ChannelTalk } from "../../assets/Icon/svgs";
-import { colors } from "../../theme/colors";
-import { To } from "../../routes/route";
 
 interface mission {
   id: number;
@@ -84,48 +81,48 @@ const history: mission[] = [
 
 export const Memory = () => {
   const navigate = useNavigate();
-      <div>
-        {history.map((mission) => (
-          <ConfirmModal
-            onHide={function noRefCheck() {}}
-            onShow={function noRefCheck() {}}
-          >
-            <ConfirmModalTrigger>
-              <ListItem
-                active
-                leftIcon={ChannelSmileIcon}
-                content={mission.content}
-                description={mission.date}
-                descriptionMaxLines={0}
-                href=""
-                rightContent={mission.type}
-                optionKey="menu-item-0"
-                className="active !py-5 !px-4 !border my-3 !rounded-xl  !border-opacity-50"
-              />
-            </ConfirmModalTrigger>
-            <ConfirmModalContent className="!h-max !max-w-md">
-              <ConfirmModalHeader title={mission.content} />
-              <img
-                className="p-10"
-                src={
-                  mission.image === ""
-                    ? "https://s3.ap-northeast-2.amazonaws.com/inno.bucket.live/corp/logo/CP00001535_20230908102522.png"
-                    : mission.image
-                }
-              />
-              <ConfirmModalFooter
-                rightContent={
-                  <ButtonGroup>
-                    <ConfirmModalClose>
-                      <Button text="Close" />
-                    </ConfirmModalClose>
-                  </ButtonGroup>
-                }
-              />
-            </ConfirmModalContent>
-          </ConfirmModal>
-        ))}
-      </div>
+  return (
+    <div>
+      {history.map((mission) => (
+        <ConfirmModal
+          onHide={function noRefCheck() {}}
+          onShow={function noRefCheck() {}}
+        >
+          <ConfirmModalTrigger>
+            <ListItem
+              active
+              leftIcon={ChannelSmileIcon}
+              content={mission.content}
+              description={mission.date}
+              descriptionMaxLines={0}
+              href=""
+              rightContent={mission.type}
+              optionKey="menu-item-0"
+              className="active !py-5 !px-4 !border my-3 !rounded-xl  !border-opacity-50"
+            />
+          </ConfirmModalTrigger>
+          <ConfirmModalContent className="!h-max !max-w-md">
+            <ConfirmModalHeader title={mission.content} />
+            <img
+              className="p-10"
+              src={
+                mission.image === ""
+                  ? "https://s3.ap-northeast-2.amazonaws.com/inno.bucket.live/corp/logo/CP00001535_20230908102522.png"
+                  : mission.image
+              }
+            />
+            <ConfirmModalFooter
+              rightContent={
+                <ButtonGroup>
+                  <ConfirmModalClose>
+                    <Button text="Close" />
+                  </ConfirmModalClose>
+                </ButtonGroup>
+              }
+            />
+          </ConfirmModalContent>
+        </ConfirmModal>
+      ))}
     </div>
   );
 };
