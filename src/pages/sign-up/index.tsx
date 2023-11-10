@@ -1,21 +1,28 @@
+import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
+import { Icon, IconSize, Text, Typography } from "@channel.io/bezier-react";
 import React from "react";
 
 export const SignUp = () => {
   return (
-    <div className="flex place-items-center min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 mt-20">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-20">
-        <h2 className="! mt-100 text-center text-5xl font-bold leading-9 tracking-tight text-gray-900">
+    <div className="relative flex flex-col items-center justify-center h-screen gap-8">
+      <div className="flex flex-col items-center justify-center gap-4">
+        <Icon
+          source={ChannelBtnSmileFilledIcon}
+          size={IconSize.XL}
+          className="mx-0"
+        />
+        <Text as="p" typo={Typography.Size30} bold className="p-4">
           Sign Up
-        </h2>
+        </Text>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
-          <div className="!my-10">
+      <form className="w-full px-[60px] space-y-10" action="#" method="POST">
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="email"
-                className="block text-xl font-bold leading-6 text-gray-900"
+                className="p-3 block text-xl font-bold leading-6 text-gray-900"
               >
                 Email Address
               </label>
@@ -31,7 +38,7 @@ export const SignUp = () => {
             </div>
           </div>
 
-          <div className="!my-10">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="name"
@@ -51,7 +58,7 @@ export const SignUp = () => {
             </div>
           </div>
 
-          <div className="!my-10">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
@@ -72,19 +79,19 @@ export const SignUp = () => {
             </div>
           </div>
 
-          <div className="!my-10">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-xl font-bold leading-6 text-gray-900"
+                className="p-3 block text-xl font-bold leading-6 text-gray-900"
               >
                 Confirm Password
               </label>
             </div>
             <div className="!mt-3">
               <input
-                id="password"
-                name="password"
+                id="confirm-password"
+                name="confirm-password"
                 type="password"
                 autoComplete="current-password"
                 required
@@ -96,13 +103,13 @@ export const SignUp = () => {
           <div className="!my-12">
             <button
               type="submit"
-              className="flex my-10 w-full h-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-bold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex my-18 w-full h-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-bold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign Up
             </button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };
