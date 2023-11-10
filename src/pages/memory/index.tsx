@@ -84,26 +84,6 @@ const history: mission[] = [
 
 export const Memory = () => {
   const navigate = useNavigate();
-
-  return (
-    <div className="mx-8">
-      <div className="flex justify-between">
-        <p className="my-10 text-4xl font-bold text-gray-900 leading-25">
-          Memory With Doong-Doong
-        </p>
-        <button
-          className="bgtxt-yellow-normal"
-          onClick={() => navigate(To.Home)}
-        >
-          <img
-            src={ChannelTalk}
-            alt=""
-            width={30}
-            height={30}
-            color={colors["bgtxt-yellow-normal"]}
-          />
-        </button>
-      </div>
       <div>
         {history.map((mission) => (
           <ConfirmModal
@@ -127,7 +107,11 @@ export const Memory = () => {
               <ConfirmModalHeader title={mission.content} />
               <img
                 className="p-10"
-                src="https://s3.ap-northeast-2.amazonaws.com/inno.bucket.live/corp/logo/CP00001535_20230908102522.png"
+                src={
+                  mission.image === ""
+                    ? "https://s3.ap-northeast-2.amazonaws.com/inno.bucket.live/corp/logo/CP00001535_20230908102522.png"
+                    : mission.image
+                }
               />
               <ConfirmModalFooter
                 rightContent={
