@@ -4,6 +4,8 @@ import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { useRecoilValue } from "recoil";
 import { experimentState, nicknameState } from "../../recoil/atoms";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { To } from "../../routes/route";
 
 export const Home = () => {
   const experiment = useRecoilValue(experimentState);
@@ -11,11 +13,15 @@ export const Home = () => {
   const [doongDoongColor, setDoonDoongColor] = useState("blue");
   const [message, setMessage] = useState("");
   const talkDoongDoong = () => {
-    setMessage("좋은하루에요");
+    const ranNum = Math.random();
+
+    setMessage(messages[Math.floor(ranNum * messages.length)]);
     setTimeout(() => {
       setMessage("");
     }, 5000);
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="relative flex flex-col h-screen">
@@ -72,7 +78,7 @@ export const Home = () => {
           </Text>
         </div>
 
-        <div>
+        <div onClick={talkDoongDoong}>
           {doongDoongColor === "red" ? <RedIcon /> : null}
           {doongDoongColor === "blue" ? <BlueIcon /> : null}
           {doongDoongColor === "teal" ? <TealIcon /> : null}
@@ -85,15 +91,20 @@ export const Home = () => {
         style={{ backgroundColor: "#5E56F04D" }}
       >
         <button
-          onClick={talkDoongDoong}
           className="py-4 px-8 bg-colors-bgtxt-blue-light rounded-[8px]"
+          onClick={() => {
+            navigate(To.MyMission);
+          }}
         >
           <Text as="p" typo={Typography.Size15} bold>
             밥주기
           </Text>
         </button>
+
         <button
-          onClick={() => {}}
+          onClick={() => {
+            navigate(To.Memory);
+          }}
           className="py-4 px-8 bg-colors-bgtxt-blue-light rounded-[8px]"
         >
           <Text as="p" typo={Typography.Size15} bold>
@@ -144,3 +155,14 @@ export const GreyIcon = () => {
     />
   );
 };
+
+export const messages = [
+  "좋은 하루에요",
+  "오늘 하루도 화이팅!",
+  "허리 피고! 영차영차!",
+  "오늘도 수고했어요",
+  "힘들땐 역시 치맥!",
+  "내가 응원해요~",
+  "둥둥이가 항상 응원할께요",
+  "둥~~둥~~",
+];
