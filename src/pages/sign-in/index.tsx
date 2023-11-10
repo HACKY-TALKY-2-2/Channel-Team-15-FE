@@ -1,9 +1,12 @@
 import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { Icon, IconSize, Text, Typography } from "@channel.io/bezier-react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { logIn } from "../../api/auth/auth";
+import { To } from "../../routes/route";
 
 export const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +17,11 @@ export const SignIn = () => {
     setEmail("");
     setPassword("");
     logIn(email, password);
+    navigate(To.Home);
+  };
+
+  const goSignUp = () => {
+    navigate(To.SignUp);
   };
 
   return (
@@ -80,6 +88,9 @@ export const SignIn = () => {
         >
           Sign In
         </button>
+        <div className="block text-xl font-bold leading-6 text-gray-900 justify-center">
+          <label onClick={goSignUp}>회원가입</label>
+        </div>
       </form>
     </div>
   );

@@ -1,9 +1,12 @@
 import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { Icon, IconSize, Text, Typography } from "@channel.io/bezier-react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../api/auth/auth";
+import { To } from "../../routes/route";
 
 export const SignUp = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +20,7 @@ export const SignUp = () => {
     setEmail("");
     setPassword("");
     signUp(name, email, password);
+    navigate(To.SignIn);
   };
 
   return (

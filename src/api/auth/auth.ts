@@ -1,7 +1,8 @@
+import axios from "axios";
 import instance from "../axiosModule";
 
 export const signUp = async (email: string, password: string, name: string) => {
-  const { data: response } = await instance.post("/user/signup", {
+  const { data: response } = await axios.post("http://192.168.8.10:8080/user/signup", {
     email,
     password,
     name,
@@ -10,7 +11,7 @@ export const signUp = async (email: string, password: string, name: string) => {
 };
 
 export const logIn = async (email: string, password: string) => {
-  const response = await instance.post("/user/login", {
+  const response = await axios.post("http://192.168.8.10:8080/user/login", {
     email,
     password,
   });
