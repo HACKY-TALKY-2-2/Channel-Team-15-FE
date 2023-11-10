@@ -2,7 +2,11 @@ import { Text, Typography, Icon } from "@channel.io/bezier-react";
 
 import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { useRecoilValue } from "recoil";
-import { experimentState, nicknameState } from "../../recoil/atoms";
+import {
+  experimentSelector,
+  experimentState,
+  nicknameState,
+} from "../../recoil/atoms";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { To } from "../../routes/route";
@@ -21,7 +25,7 @@ export const messages = [
 export const colors = ["red", "blue", "teal", "pink", "grey", "black"];
 
 export const Home = () => {
-  const experiment = useRecoilValue(experimentState);
+  const level = useRecoilValue(experimentSelector);
   const nickname = useRecoilValue(nicknameState);
   const [doongDoongColor, setDoonDoongColor] = useState("blue");
   const [message, setMessage] = useState("");
@@ -42,11 +46,7 @@ export const Home = () => {
         style={{ backgroundColor: "#5E56F04D" }}
       >
         <button className="flex items-center justify-center w-24 h-16 m-6 text-3xl rounded-full bg-colors-bg-grey-dim-lightest">
-          <Text
-            as="p"
-            typo={Typography.Size18}
-            bold
-          >{`${experiment.level}`}</Text>
+          <Text as="p" typo={Typography.Size18} bold>{`${level}`}</Text>
         </button>
         <Text as="p" typo={Typography.Size24} bold className="p-4">
           {`${nickname}의 둥둥이`}
