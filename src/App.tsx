@@ -5,7 +5,10 @@ import { RecoilRoot } from "recoil";
 import "./App.css";
 import { Home } from "./pages/home";
 import { Memory } from "./pages/memory";
-import { SingIn } from "./pages/sign-in";
+import { MyMission } from "./pages/my-mission";
+import { SignIn } from "./pages/sign-in";
+import { SignUp } from "./pages/sign-up";
+import { TeamMission } from "./pages/team-mission";
 import { To } from "./routes/route";
 
 function App() {
@@ -29,8 +32,11 @@ function App() {
           <Router>
             <Routes>
               <Route path={To.Home} Component={Home} />
-              <Route path={To.SignIn} Component={SingIn} />
+              <Route path={To.SignIn} Component={SignIn} />
+              <Route path={To.MyMission} Component={MyMission} />
+              <Route path={To.TeamMission} Component={TeamMission} />
               <Route path={To.Memory} Component={Memory} />
+              <Route path={To.SignUp} Component={SignUp} />
             </Routes>
           </Router>
         </QueryClientProvider>
