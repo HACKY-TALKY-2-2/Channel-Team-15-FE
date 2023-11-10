@@ -7,6 +7,19 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { To } from "../../routes/route";
 
+export const messages = [
+  "좋은 하루에요",
+  "오늘 하루도 화이팅!",
+  "허리 피고! 영차영차!",
+  "오늘도 수고했어요",
+  "힘들땐 역시 치맥!",
+  "내가 응원해요~",
+  "둥둥이가 항상 응원할께요",
+  "둥~~둥~~",
+];
+
+export const colors = ["red", "blue", "teal", "pink", "grey", "black"];
+
 export const Home = () => {
   const experiment = useRecoilValue(experimentState);
   const nickname = useRecoilValue(nicknameState);
@@ -14,7 +27,6 @@ export const Home = () => {
   const [message, setMessage] = useState("");
   const talkDoongDoong = () => {
     const ranNum = Math.random();
-
     setMessage(messages[Math.floor(ranNum * messages.length)]);
     setTimeout(() => {
       setMessage("");
@@ -41,34 +53,13 @@ export const Home = () => {
         </Text>
       </div>
       <div className="flex justify-center gap-4 mt-6">
-        <div
-          className="rounded-full w-9 h-9"
-          style={{ backgroundColor: "red" }}
-          onClick={() => {
-            setDoonDoongColor("red");
-          }}
-        ></div>
-        <div
-          className="rounded-full w-9 h-9"
-          style={{ backgroundColor: "blue" }}
-          onClick={() => {
-            setDoonDoongColor("blue");
-          }}
-        ></div>
-        <div
-          className="rounded-full w-9 h-9"
-          style={{ backgroundColor: "teal" }}
-          onClick={() => {
-            setDoonDoongColor("teal");
-          }}
-        ></div>
-        <div
-          className="rounded-full w-9 h-9"
-          style={{ backgroundColor: "pink" }}
-          onClick={() => {
-            setDoonDoongColor("pink");
-          }}
-        ></div>
+        {colors.map((color) => (
+          <div
+            className="w-9 h-9 rounded-full"
+            style={{ backgroundColor: color }}
+            onClick={() => setDoonDoongColor(color)}
+          ></div>
+        ))}
       </div>
 
       <div className="absolute flex flex-col items-center justify-center translate-x-1/2 translate-y-1/2 h-1/2">
@@ -78,12 +69,7 @@ export const Home = () => {
           </Text>
         </div>
 
-        <div onClick={talkDoongDoong}>
-          {doongDoongColor === "red" ? <RedIcon /> : null}
-          {doongDoongColor === "blue" ? <BlueIcon /> : null}
-          {doongDoongColor === "teal" ? <TealIcon /> : null}
-          {doongDoongColor === "pink" ? <GreyIcon /> : null}
-        </div>
+        <div onClick={talkDoongDoong}>{DoongDoongIcon(doongDoongColor)}</div>
       </div>
 
       <div
@@ -116,53 +102,24 @@ export const Home = () => {
   );
 };
 
-export const BlueIcon = () => {
+export const DoongDoongIcon = (color: string) => {
   return (
     <Icon
       source={ChannelBtnSmileFilledIcon}
       style={{ width: "200px", height: "200px" }}
-      color="bgtxt-blue-normal"
+      color={
+        color === "red"
+          ? "bgtxt-red-normal"
+          : color === "blue"
+          ? "bgtxt-blue-normal"
+          : color === "teal"
+          ? "bgtxt-teal-normal"
+          : color === "pink"
+          ? "bgtxt-pink-light"
+          : color === "grey"
+          ? "bgtxt-absolute-black-light"
+          : "txt-black-darkest"
+      }
     />
   );
 };
-
-export const RedIcon = () => {
-  return (
-    <Icon
-      source={ChannelBtnSmileFilledIcon}
-      style={{ width: "200px", height: "200px" }}
-      color="bgtxt-red-normal"
-    />
-  );
-};
-
-export const TealIcon = () => {
-  return (
-    <Icon
-      source={ChannelBtnSmileFilledIcon}
-      style={{ width: "200px", height: "200px" }}
-      color="bgtxt-teal-normal"
-    />
-  );
-};
-
-export const GreyIcon = () => {
-  return (
-    <Icon
-      source={ChannelBtnSmileFilledIcon}
-      style={{ width: "200px", height: "200px" }}
-      color="bgtxt-pink-normal"
-    />
-  );
-};
-
-export const messages = [
-  "좋은 하루에요",
-  "오늘 하루도 화이팅!",
-  "허리 피고! 영차영차!",
-  "오늘도 수고했어요",
-  "힘들땐 역시 치맥!",
-  "내가 응원해요~",
-  "둥둥이가 항상 응원할께요",
-  "둥~~둥~~",
-];
