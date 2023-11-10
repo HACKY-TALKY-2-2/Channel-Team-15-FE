@@ -1,8 +1,24 @@
 import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { Icon, IconSize, Text, Typography } from "@channel.io/bezier-react";
-import React from "react";
+import React, { useState } from "react";
+import { signUp } from "../../api/auth/auth";
 
 export const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleName = (event: any) => setName(event.target.value);
+  const handleEmail = (event: any) => setEmail(event.target.value);
+  const handlePassword = (event: any) => setPassword(event.target.value);
+
+  const submitInformation = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+    signUp(name, email, password);
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center h-screen gap-8">
       <div className="flex flex-col items-center justify-center gap-4">
@@ -32,6 +48,7 @@ export const SignUp = () => {
                 id="email"
                 name="email"
                 type="email"
+                onChange={handleEmail}
                 required
                 className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -52,6 +69,7 @@ export const SignUp = () => {
                 id="name"
                 name="name"
                 type="name"
+                onChange={handleName}
                 required
                 className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -73,6 +91,7 @@ export const SignUp = () => {
                 name="password"
                 type="password"
                 autoComplete="current-password"
+                onChange={handlePassword}
                 required
                 className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -94,6 +113,7 @@ export const SignUp = () => {
                 name="confirm-password"
                 type="password"
                 autoComplete="current-password"
+                onChange={handlePassword}
                 required
                 className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -103,6 +123,7 @@ export const SignUp = () => {
           <div className="!my-12">
             <button
               type="submit"
+              onClick={submitInformation}
               className="flex my-18 w-full h-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-bold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign Up
