@@ -4,7 +4,6 @@ import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { useRecoilValue } from "recoil";
 import { experimentState, nicknameState } from "../../recoil/atoms";
 import { useState } from "react";
-import { Tooltip } from "antd";
 
 export const Home = () => {
   const experiment = useRecoilValue(experimentState);
