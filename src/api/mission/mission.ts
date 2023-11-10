@@ -1,16 +1,16 @@
-import instance from "../axiosModule";
+import axios from "axios";
 
 export const clearMission = async () => {
-  const { data: response } = await instance.post("/user/clearMission/1");
+  const { data: response } = await axios.post("http://192.168.8.10:8080/user/clearMission/1");
   return response.data;
 };
 
 export const clearImageMission = async () => {
-  const { data: response } = await instance.post("/user/clearImageMission/1");
+  const { data: response } = await axios.post("http://192.168.8.10:8080/user/clearImageMission/1");
   return response.data;
 };
 
 export const addMission = async () => {
-  const { data: response } = await instance.post("/mission/add");
+  const { data: response } = await axios.post("http://192.168.8.10:8080/mission/add");
   return response.data;
 };
