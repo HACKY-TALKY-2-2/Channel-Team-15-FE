@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# 둥둥이랑 추억쌓기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+역삼역 직장인을 밖으로!
 
-## Available Scripts
+## Developer
 
-In the project directory, you can run:
+👩🏻‍💻 김영림 | 세종대 EN# : Frontend - React Typescript
 
-### `npm start`
+👩🏻‍💻 김유나 | 고려대 KUCC : Frontend - React Typescript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+🧑🏻‍💻 인재익 | 연세대 YCC : Frontend - React Typescript
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+🧑🏻‍💻 임우진 | 세종대 EN# : Backend - Spring
 
-### `npm test`
+## 개요
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://github.com/HACKY-TALKY-2-2/Channel-Team-15-FE/assets/96540148/adc52dfd-424e-4af8-a9e4-b8b8e2079206)
 
-### `npm run build`
+## 기능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://github.com/HACKY-TALKY-2-2/Channel-Team-15-FE/assets/96540148/e1d3def4-3e8d-4acf-8dc3-6323fc20c6b3)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Main`
 
-### `npm run eject`
+메인 화면에 등장하는 채널톡 마스코트 '둥둥이'
+둥둥이에게 밥을 주고 싶은가요? '밥주기'를 눌러서 미션을 수행해주세요!
+둥둥이와 함께한 추억도 확인할 수 있어요!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Personal Mission`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+소소한 개인 미션을 드립니다.
+미션을 수행하는 나, 나름 갓생일지도?
+(경험치 1~10P)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `Team Mission`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+둥둥이를 구해주세요!
+함께 모여서 둥둥이를 구하러 역삼역으로 달려요!
+(경험치 100P)
 
-## Learn More
+### `Level Up`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+경험치가 쌓이면 둥둥이가 점점 커져요!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 소감
+
+즐거운 해커톤 시간이었습니다!
+
+🔥 HackyTalky Challenge 🔥
