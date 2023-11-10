@@ -3,6 +3,7 @@ import { ChannelTalk } from "../../assets/Icon/svgs";
 import { colors } from "../../theme/colors";
 import { useNavigate } from "react-router-dom";
 import { To } from "../../routes/route";
+import useMutationClearMission from "../../react-query/mutations/useMutation.clearMission";
 
 const myMissions = [
   {
@@ -59,6 +60,9 @@ const myMissions = [
 
 export const MyMission = () => {
   const navigate = useNavigate();
+
+  const { mutateAsync: clearMission } = useMutationClearMission();
+  console.log(clearMission);
 
   return (
     <div className="flex flex-col h-screen gap-3 px-4 py-2 overflow-scroll">

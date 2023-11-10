@@ -10,7 +10,21 @@ export const clearImageMission = async () => {
   return response.data;
 };
 
-export const addMission = async () => {
-  const { data: response } = await instance.post("/mission/add");
+export const addMission = async ({
+  content,
+  experiment,
+  requireImage,
+}: AddMissionType): Promise<any> => {
+  const { data: response } = await instance.post<any>("/mission/add", {
+    content,
+    experiment,
+    requireImage,
+  });
   return response.data;
+};
+
+type AddMissionType = {
+  content: string;
+  experiment: number;
+  requireImage: boolean;
 };

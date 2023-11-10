@@ -4,10 +4,12 @@ import { colors } from "../../theme/colors";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { useMutation } from "react-query";
 
 import { ChannelBtnFilledIcon } from "@channel.io/bezier-icons";
 import { useNavigate } from "react-router-dom";
 import { To } from "../../routes/route";
+import { addMission } from "../../api/mission/mission";
 
 export const TeamMission = () => {
   const notify = () => toast("사람들을 모아서 미션을 성공해보세요!");
@@ -17,6 +19,13 @@ export const TeamMission = () => {
   //   notify();
   // }, []);
 
+  const { mutate: add } = useMutation(
+    () => addMission({ content: "", experiment: 100, requireImage: true }),
+    {
+      onSuccess: () => {},
+      onError: () => {},
+    }
+  );
   return (
     <div className="flex flex-col gap-3 px-4 py-2">
       <div className="flex items-center justify-between mb-2">

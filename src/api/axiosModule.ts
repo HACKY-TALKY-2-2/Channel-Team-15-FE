@@ -4,7 +4,7 @@ import { getAccessTokenFromLocalStorage } from "../utils/accessTokenHandler";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const instance = axios.create({
-  baseURL: SERVER_URL,
+  baseURL: "192.168.8.10:8080",
   headers: {
     Authorization: `Bearer ${getAccessTokenFromLocalStorage()}}`,
   },

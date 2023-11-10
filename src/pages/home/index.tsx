@@ -6,6 +6,9 @@ import { experimentState, nicknameState } from "../../recoil/atoms";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { To } from "../../routes/route";
+import { useQuery } from "@tanstack/react-query";
+import { getMe } from "../../api/me/me";
+import useQueryGetMe from "../../react-query/queries/useQuery.getMe";
 
 export const messages = [
   "좋은 하루에요",
@@ -21,6 +24,8 @@ export const messages = [
 export const colors = ["red", "blue", "teal", "pink", "grey", "black"];
 
 export const Home = () => {
+  const { data: meData, isLoading, isError } = useQueryGetMe();
+  console.log(meData);
   const experiment = useRecoilValue(experimentState);
   const nickname = useRecoilValue(nicknameState);
   const [doongDoongColor, setDoonDoongColor] = useState("blue");
@@ -55,7 +60,7 @@ export const Home = () => {
       <div className="flex justify-center gap-4 mt-6">
         {colors.map((color) => (
           <div
-            className="w-9 h-9 rounded-full"
+            className="rounded-full w-9 h-9"
             style={{ backgroundColor: color }}
             onClick={() => setDoonDoongColor(color)}
           ></div>
