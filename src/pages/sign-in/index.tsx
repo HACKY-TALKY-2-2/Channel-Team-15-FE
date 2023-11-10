@@ -1,26 +1,24 @@
 import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
 import { Icon, IconSize } from "@channel.io/bezier-react";
 import React from "react";
-
+import { Text, Typography } from "@channel.io/bezier-react";
 export const SignIn = () => {
   return (
-    <div className="flex items-center place-items-center min-h-full flex-1 flex-col mt-20 px-6 py-5 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm  mt-20">
-        {/* <div className="mb-20 object-center"> */}
+    <div className="relative flex flex-col items-center justify-center h-screen gap-8">
+      <div className="flex flex-col items-center justify-center gap-4">
         <Icon
           source={ChannelBtnSmileFilledIcon}
           size={IconSize.XL}
           className="mx-0"
         />
-        {/* </div> */}
-        <h2 className="!text-center text-5xl font-bold leading-9 tracking-tight text-gray-900">
+        <Text as="p" typo={Typography.Size30} bold className="p-4">
           Sign In
-        </h2>
+        </Text>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
-          <div className="!my-10">
+      <form className="w-full px-[60px] space-y-10" action="#" method="POST">
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="email"
@@ -35,12 +33,11 @@ export const SignIn = () => {
                 name="email"
                 type="email"
                 required
-                className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full px-6 py-5 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-
-          <div className="!my-10">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
@@ -56,21 +53,18 @@ export const SignIn = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="p-3 block w-full h-11 rounded-xl border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full p-6 py-5 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-
-          <div className="!mt-12">
-            <button
-              type="submit"
-              className="flex my-10 w-full h-10 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-bold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Sign In
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <button
+          type="submit"
+          className="flex justify-center w-full p-4 font-bold leading-6 text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Sign In
+        </button>
+      </form>
     </div>
   );
 };
